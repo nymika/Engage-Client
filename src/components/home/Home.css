@@ -1,0 +1,37 @@
+.flex-container {
+    display: flex;
+    position: fixed;
+    left: 7vw;
+  }
+
+.text-container{
+    padding-top: 10%;
+    width:65%;
+}
+
+.h1Text{
+    /* font-family: Poppins, sans-serif; */
+    font-size: 4.2rem;
+    line-height:1.1;
+}
+
+.h2Text{
+    /* font-family: Roboto; */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.h3Text{
+    font-size: 1rem;
+}
+
+.bg-container{
+    width: 24vw;
+    position: absolute;
+    right: 7vw;
+    top: 7vw;
+}
+
+.bg-image{
+    width: 100%;
+}

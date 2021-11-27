@@ -1,0 +1,37 @@
+.problemset-container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.problemset-left{
+    margin-left: 20px;
+    flex: 1;
+}
+
+.problemset-right{
+    margin: 20px 30px 0px 30px;
+    flex: 4;
+}
+
+.problem-searchbar{
+    margin-bottom: 10px;
+}
+
+.problemset-spinner{
+    display: block;
+    position: fixed;
+    z-index: 2; 
+    top: 50%;
+    right: 50%;
+}
+
+.new-problem{
+    margin: 20px 0 10px 0;
+}
+
+.column-title{
+    font-weight: 800;
+    font-size: large;
+    margin: 0px;
+}

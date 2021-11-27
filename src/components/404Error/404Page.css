@@ -1,0 +1,25 @@
+.error-container{
+    position: absolute;
+    top: 7vw;
+    display: flex;
+}
+
+.text{
+    align-items: center;
+    padding: 5%
+}
+
+.error-image{
+    width: 50vw;
+}
+
+.h1-text{
+    font-weight: 800;
+    font-size: xxx-large;
+}
+
+.h2-text{
+    font-weight: 800;
+    font-size: xx-large;
+    color: #a15a5a
+}

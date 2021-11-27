@@ -34,7 +34,6 @@ const CreateCourse = () => {
                 }
             })
             .then((res) => {
-                console.log(res.data);
                 SuccessToast("Class Created Successfully")
             })
             .catch((err) => {

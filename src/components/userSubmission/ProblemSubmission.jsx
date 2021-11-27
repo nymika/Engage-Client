@@ -27,7 +27,6 @@ import { getDateTime } from "../../utils";
 
 const columns = [
   { id: "id", align: "center", label: "#", minWidth: 10 },
-  { id: "studentName", align: "center", label: "Student Name", minWidth: 50 },
   { id: "date", align: "center", label: "When", minWidth: 50 },
   { id: "problemName", align: "center", label: "Problem Name", minWidth: 100 },
   { id: "lang", align: "center", label: "Language", minWidth: 50 },
@@ -63,7 +62,7 @@ function getModalStyle() {
   };
 }
 
-export default function ProblemSubmission({problemId, assignmentCode}) {
+export default function ProblemSubmission({ problemId, assignmentCode }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
@@ -74,7 +73,7 @@ export default function ProblemSubmission({problemId, assignmentCode}) {
   const [hasSubmissions, setHasSubmissions] = useState(true);
   const [user, setUser] = useState({});
 
-  
+
   const langMap = {
     c: "C",
     cpp17: "C++",
@@ -86,7 +85,7 @@ export default function ProblemSubmission({problemId, assignmentCode}) {
     const accessToken = localStorage.getItem("access-token");
     //for submissions to this problem
     axios
-      .post(`${BACK_SERVER_URL}/api/submission/getByProblemId/${assignmentCode}/${problemId}`, {}, {
+      .post(`${BACK_SERVER_URL}/api/submission/getByAssignment/${assignmentCode}`, {}, {
         headers: {
           authorization: accessToken
         }
@@ -99,33 +98,6 @@ export default function ProblemSubmission({problemId, assignmentCode}) {
       })
       .catch((err) => {
         const error = err.response ? err.response.data.message : err.message;
-        toast.error(error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      });
-  }, []);
-
-  useLayoutEffect(() => {
-    const accessToken = localStorage.getItem("access-token");
-
-    //for UserName with user Id.
-    axios.post(`${BACK_SERVER_URL}/api/user/profile`, {}, {
-      headers: {
-        authorization: accessToken
-      }
-    })
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => {
-        console.log(err)
-        const error = "Error";
         toast.error(error, {
           position: "top-right",
           autoClose: 5000,
@@ -181,12 +153,6 @@ export default function ProblemSubmission({problemId, assignmentCode}) {
           }}
         />
       </div>
-      <p className="usersubmission-modal-details">
-        By
-        <Link className="usersubmission-modal-username" to="/">
-          {user.firstname + " " + user.lastname}
-        </Link>
-      </p>
       <hr className="usersubmission-modal-hr" />
       <Submission submission={modalState.submission} />
     </div>
@@ -247,22 +213,8 @@ export default function ProblemSubmission({problemId, assignmentCode}) {
                               </span>
                             </TableCell>
                           );
-                        } else if (column.id === "studentName") {
-                            return (
-                              <TableCell key={column.id} align={column.align}>
-                                <span
-                                  style={{
-                                    fontWeight: "bold",
-                                    fontSize: "15px",
-                                    textDecoration: "none",
-                                    color: "#1a237e",
-                                  }}
-                                >
-                                  {user.firstname + " " + user.lastname}
-                                </span>
-                              </TableCell>
-                            );
-                          } else if (column.id === "problemName") {
+                        }
+                        else if (column.id === "problemName") {
                           return (
                             <TableCell key={column.id} align={column.align}>
                               <Button

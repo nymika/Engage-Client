@@ -46,7 +46,8 @@ export default function NavBar() {
           {login ? (
             <>
               {
-                (localStorage.getItem("userType") !== 'admin') ?
+                (localStorage.getItem("userType") === 'admin') ?         
+                  null :
                   <Link to="/mySubmissions" style={{ textDecoration: "none" }}>
                     <Button
                       variant="contained"
@@ -54,7 +55,6 @@ export default function NavBar() {
                       MY SUBMISSIONS
                     </Button>
                   </Link>
-                  : null
               }
 
               <Button onClick={logoutClick}

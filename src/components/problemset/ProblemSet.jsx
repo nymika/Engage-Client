@@ -109,7 +109,7 @@ export default function ProblemSet() {
           (localStorage.getItem("userType") === 'admin') ?
             (<div className="new-problem">
               <Link to={`/${classCode}/${assignmentCode}/addproblem`}>
-                <Button variant="contained" fullWidth>
+                <Button variant="contained" color="primary" fullWidth>
                   Add new Problem
                 </Button>
               </Link>

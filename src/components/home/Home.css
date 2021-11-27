@@ -28,8 +28,8 @@
 .bg-container{
     width: 24vw;
     position: absolute;
-    right: 7vw;
-    top: 7vw;
+    right: 0vw;
+    top: 5vw;
 }
 
 .bg-image{

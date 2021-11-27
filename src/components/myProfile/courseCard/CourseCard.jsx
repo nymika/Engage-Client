@@ -109,13 +109,14 @@ const CourseCard = (props) => {
         <CardContent>
           <div className="assignments-add-heading">
             <p className="signin-title">Assignments:</p>
-            <div className="addassignments">
-              <Link to={`${props.subheader}/createAssignment`} >
-                <Avatar className="signin-avatar">
-                  <AddCircleIcon />
-                </Avatar>
-              </Link>
-            </div>
+            {(localStorage.getItem("userType") == 'admin') ?
+              <div className="addassignments">
+                <Link to={`${props.subheader}/createAssignment`} >
+                  <Avatar className="signin-avatar">
+                    <AddCircleIcon />
+                  </Avatar>
+                </Link>
+              </div> : null}
           </div>
           <hr />
           {(assignments) ? (
